@@ -920,10 +920,10 @@ Hooks.on("renderActorSheet", (sheet, html) => {
   
     if (isCreatorEnabled && isReady) {
       // Bouton "Roll Character" en vert
-      insertHeaderButton(titleElem, "create-character", "fa-dice-d20", "Roll Character", "#5f0", () => game.mothershipFr.startCharacterCreation(actor));
+      insertHeaderButton(titleElem, "create-character", "fa-dice-d20", game.i18n.localize("Mosh.RollCharacter"), "#5f0", () => game.mothershipFr.startCharacterCreation(actor));
     } else {
       // Bouton "Shore Leave" standard  
-      insertHeaderButton(titleElem, "simple-shoreleave", "fa-umbrella-beach", "Shore Leave", "#3cf", () => game.moshGreybeardQol.simpleShoreLeave(actor));
+      insertHeaderButton(titleElem, "simple-shoreleave", "fa-umbrella-beach", game.i18n.localize("Mosh.ShoreLeave"), "#3cf", () => game.moshGreybeardQol.simpleShoreLeave(actor));
     }
   }
 });

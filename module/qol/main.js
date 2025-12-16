@@ -330,7 +330,7 @@ Hooks.on("renderActorSheet", (sheet, html) => {
   
     if (isCreatorEnabled && isReady) {
       // Ersetze durch Character-Reset-Button
-      insertHeaderButton(titleElem, "create-character", "fa-dice-d20", "Roll Character", "#5f0", () => game.moshGreybeardQol.startCharacterCreation(actor));
+      insertHeaderButton(titleElem, "create-character", "fa-dice-d20", game.i18n.localize("Mosh.RollCharacter"), "#5f0", () => game.moshGreybeardQol.startCharacterCreation(actor));
     } else {
       // Standard ShoreLeave-Button einfügen
       insertHeaderButton(titleElem, "simple-shoreleave", "fa-umbrella-beach", "Shore Leave", "#3cf", () => game.moshGreybeardQol.simpleShoreLeave(actor));

@@ -59,9 +59,9 @@ export class MothershipActorSheet extends foundry.appv1.sheets.ActorSheet {
             superData.xp.html += '<div class="circle"></div>';
           }
           else { //If a special one
-            let trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -54px;">Trained</div>';
-            if (i == 10) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -50px;">Expert</div>';
-            else if (i == 15) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -52px;">Master</div>';
+            let trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -54px;">' + game.i18n.localize("Mosh.SkillRankTrained") + '</div>';
+            if (i == 10) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -50px;">' + game.i18n.localize("Mosh.SkillRankExpert") + '</div>';
+            else if (i == 15) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -52px;">' + game.i18n.localize("Mosh.SkillRankMaster") + '</div>';
             superData.xp.html += '<div class="circle" style="background:rgb(200,200,200);">' + trainLevel + '</div>';
           }
         }
@@ -70,9 +70,9 @@ export class MothershipActorSheet extends foundry.appv1.sheets.ActorSheet {
             superData.xp.html += '<div class="circle-f"></div>';
           }
           else { //If a special one
-            let trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -54px; color:black;">Trained</div>';
-            if (i == 10) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -50px; color:black;">Expert</div>';
-            else if (i == 15) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -52px; color:black;">Master</div>';
+            let trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -54px; color:black;">' + game.i18n.localize("Mosh.SkillRankTrained") + '</div>';
+            if (i == 10) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -50px; color:black;">' + game.i18n.localize("Mosh.SkillRankExpert") + '</div>';
+            else if (i == 15) trainLevel = '<div class="skill_training_text" style="position: relative; top: 17px; text-align: center; left: -52px; color:black;">' + game.i18n.localize("Mosh.SkillRankMaster") + '</div>';
             superData.xp.html += '<div class="circle-f" style="background:black;">' + trainLevel + '</div>';
           }
 
@@ -555,18 +555,18 @@ export class MothershipActorSheet extends foundry.appv1.sheets.ActorSheet {
     };
 
     let d = new foundry.applications.api.DialogV2({
-		  window: {title: `New Skill`},
-      content: "<h2> Name </h2>\
-                <input type='text' id='name' name='name' value='New Skill'>\
-                <h2> Rank </h2> <select style='margin-bottom:10px;'name='rank' id='rank'>\
-                <option value='Trained'>Trained</option>\
-                <option value='Expert'>Expert</option>\
-                <option value='Master'>Master</option></select> <br/>",
+      window: { title: game.i18n.localize("Mosh.AddASkillTitle") },
+      content: `<h2> ${game.i18n.localize("Mosh.NewSkill")} </h2>\
+                <input type='text' id='name' name='name' value='${game.i18n.localize("Mosh.SkillName")}'>\
+                <h2> ${game.i18n.localize("Mosh.SkillRank")} </h2> <select style='margin-bottom:10px;'name='rank' id='rank'>\
+                <option value='Trained'>${game.i18n.localize("Mosh.SkillRankTrained")}</option>\
+                <option value='Expert'>${game.i18n.localize("Mosh.SkillRankExpert")}</option>\
+                <option value='Master'>${game.i18n.localize("Mosh.SkillRankMaster")}</option></select> <br/>`,
       buttons: [
         {
           icon: '<i class="fas fa-check"></i>',
           action: "create",
-          label: "Create",
+          label: game.i18n.localize("Mosh.CreateSkill"),
           callback: (event, button, dialog) => {
             var rank = button.form.querySelector('[id=\"rank\"]')?.value;
             if (rank == "Trained")
